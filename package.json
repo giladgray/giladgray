@@ -1,0 +1,31 @@
+{
+  "name": "giladgray",
+  "version": "0.0.0",
+  "description": "",
+  "main": "gulpfile.babel.js",
+  "dependencies": {
+    "babel-core": "^5.8.25",
+    "browser-sync": "^2.9.9",
+    "gulp": "^3.9.0",
+    "gulp-count": "^0.1.0",
+    "gulp-autoprefixer": "^3.0.2",
+    "gulp-jade": "^1.1.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-util": "^3.0.6",
+    "gulp-watch": "^4.3.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giladgray/giladgray.git"
+  },
+  "bugs": {
+    "url": "https://github.com/giladgray/giladgray/issues"
+  },
+  "homepage": "https://github.com/giladgray/giladgray#readme"
+}

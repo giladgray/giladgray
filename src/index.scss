@@ -1,0 +1,132 @@
+$letter-color: #ddd;
+$letter-hover-color: purple;
+
+$letter-thickness: 10px;
+$letter-width: 100px;
+$letter-height: 150px;
+
+$letter-border: $letter-thickness solid $letter-color;
+
+body * {
+  box-sizing: border-box;
+}
+
+@mixin top-bottom() {
+  border: none;
+
+  &:before,
+  &:after {
+    display: block;
+    content: '';
+    box-sizing: border-box;
+
+    width: $letter-width;
+    height: $letter-height / 2;
+  }
+}
+
+.letter {
+  position: relative;
+  display: inline-block;
+  margin: 3px;
+
+  width: $letter-width;
+  height: $letter-height;
+
+  border: $letter-border;
+
+  // &:hover,
+  // &:hover:before,
+  // &:hover:after { border-color: $letter-hover-color; }
+
+  &.g {
+    @include top-bottom();
+
+    &:before {
+      border-top: $letter-border;
+      border-left: $letter-border;
+      border-radius: $letter-width 0 0 0;
+    }
+
+    &:after {
+      border: $letter-border;
+      border-top: none;
+      border-radius: 0 0 0 $letter-width;
+    }
+  }
+
+  &.i {
+    border-left: none;
+    border-right: none;
+
+    &:before {
+      display: block;
+      content: '';
+
+      height: $letter-height - $letter-thickness;
+      border-left: $letter-border;
+      margin: 0 ($letter-width - $letter-thickness) / 2;
+    }
+  }
+
+  &.l {
+    border-top: none;
+    border-right: none;
+  }
+
+  &.a {
+    border-radius: $letter-width $letter-width 0 0 ;
+    border-bottom: none;
+
+    &:before {
+      display: block;
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: -$letter-thickness;
+      transform: translateY(-50%);
+
+      width: $letter-width;
+      border-top: $letter-border;
+    }
+  }
+
+  &.d {
+    border-radius: 0 $letter-width $letter-width 0;
+  }
+
+  &.r {
+    @include top-bottom();
+
+    &:before {
+      height: $letter-height / 2 + $letter-thickness;
+      border: $letter-border;
+      border-radius: 0 $letter-width $letter-width 0;
+      margin-bottom: -$letter-thickness;
+    }
+
+    &:after {
+      border: $letter-border;
+      border-bottom: none;
+      border-radius: 0 $letter-width / 3 0 0;
+    }
+  }
+
+  &.y {
+    @include top-bottom();
+
+    &:before {
+      height: $letter-height / 2 + $letter-thickness;
+      border: $letter-border;
+      border-top: none;
+      border-radius: 0 0 $letter-width $letter-width;
+    }
+
+    &:after {
+      height: $letter-height / 2 - $letter-thickness;
+      margin: 0 ($letter-width - $letter-thickness) / 2;
+      border-left: $letter-border;
+    }
+  }
+}
