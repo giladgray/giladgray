@@ -1,14 +1,35 @@
 $letter-color: #ddd;
 $letter-hover-color: purple;
 
-$letter-thickness: 10px;
-$letter-width: 100px;
-$letter-height: 150px;
+$letter-thickness: 0.2em;
+$letter-width: 1em;
+$letter-height: 1.5em;
 
 $letter-border: $letter-thickness solid $letter-color;
 
-body * {
+body {
+  font-size: 100px;
+
+  * { box-sizing: border-box; }
+}
+
+#name { font-size: 100px; }
+.alphabet { font-size: 40px; }
+
+%letter-hover {
+  border-color: $letter-hover-color;
+  transform: rotateY(180deg);
+}
+
+%pseudo-letter {
+  display: block;
+  content: '';
   box-sizing: border-box;
+
+  border-color: $letter-color;
+  border-width: $letter-thickness;
+
+  &:hover { border-color: $letter-hover-color; }
 }
 
 @mixin top-bottom() {
@@ -16,9 +37,11 @@ body * {
 
   &:before,
   &:after {
-    display: block;
-    content: '';
-    box-sizing: border-box;
+    @extend %pseudo-letter;
+    width: $letter-width;
+    height: $letter-height / 2;
+  }
+}
 
     width: $letter-width;
     height: $letter-height / 2;
@@ -28,12 +51,17 @@ body * {
 .letter {
   position: relative;
   display: inline-block;
-  margin: 3px;
+  margin: $letter-thickness / 2;
 
   width: $letter-width;
   height: $letter-height;
 
-  border: $letter-border;
+  border-color: $letter-color;
+  border-width: $letter-thickness;
+
+  transition: transform 500ms ease;
+
+  &:hover { @extend %letter-hover; }
 
   // &:hover,
   // &:hover:before,
@@ -43,44 +71,38 @@ body * {
     @include top-bottom();
 
     &:before {
-      border-top: $letter-border;
-      border-left: $letter-border;
+      border-style: solid none none solid;
       border-radius: $letter-width 0 0 0;
     }
 
     &:after {
-      border: $letter-border;
-      border-top: none;
+      border-style: none solid solid;
       border-radius: 0 0 0 $letter-width;
     }
   }
 
   &.i {
-    border-left: none;
-    border-right: none;
+    border-style: solid none;
 
     &:before {
-      display: block;
-      content: '';
+      @extend %pseudo-letter;
 
       height: $letter-height - $letter-thickness;
-      border-left: $letter-border;
+      border-left-style: solid;
       margin: 0 ($letter-width - $letter-thickness) / 2;
     }
   }
 
   &.l {
-    border-top: none;
-    border-right: none;
+    border-style: none none solid solid;
   }
 
   &.a {
-    border-radius: $letter-width $letter-width 0 0 ;
-    border-bottom: none;
+    border-radius: $letter-width $letter-width 0 0;
+    border-style: solid solid none;
 
     &:before {
-      display: block;
-      content: '';
+      @extend %pseudo-letter;
 
       position: absolute;
       top: 50%;
@@ -88,7 +110,7 @@ body * {
       transform: translateY(-50%);
 
       width: $letter-width;
-      border-top: $letter-border;
+      border-top-style: solid;
     }
   }
 
