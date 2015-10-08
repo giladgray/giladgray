@@ -55,20 +55,6 @@ body {
   // &:hover:before,
   // &:hover:after { border-color: $letter-hover-color; }
 
-  &.g {
-    @include top-letter(solid none none solid, $letter-width 0 0 0);
-    @include bottom-letter(none solid solid, 0 0 0 $letter-width);
-    @include middle-cross-bar();
-  }
-
-  &.i {
-    @include full-letter(solid none, 0);
-    @include full-bar();
-  }
-
-  &.l {
-    @include full-letter(none none solid solid, 0);
-  }
 
   &.a {
     @include top-letter(solid, $letter-width $letter-width 0 0);
@@ -76,8 +62,83 @@ body {
     @include middle-cross-bar();
   }
 
+  &.b {
+    @include top-letter(solid, 0 $letter-width $letter-width 0);
+    @include bottom-letter(solid, 0 $letter-width $letter-width 0);
+  }
+
+  &.c {
+    @include full-letter(solid none solid solid, $letter-width 0 0 $letter-width);
+  }
+
   &.d {
     @include full-letter(solid, 0 $letter-width $letter-width 0);
+  }
+
+  &.e {
+    @include top-letter(solid none solid solid, $letter-width 0 0);
+    @include bottom-letter(solid none solid solid, 0 0 0 $letter-width);
+    @include middle-cross-bar();
+  }
+
+  &.f {
+    @include top-letter(solid none solid solid, $letter-width 0 0);
+    @include bottom-letter(solid none none solid, 0);
+    @include middle-cross-bar();
+  }
+
+  &.g {
+    @include top-letter(solid none none solid, $letter-width 0 0 0);
+    @include bottom-letter(none solid solid, 0 0 0 $letter-width);
+    @include middle-cross-bar();
+  }
+
+  &.h {
+    @include top-letter(none solid solid, 0);
+    @include bottom-letter(solid solid none, 0);
+  }
+
+  &.i {
+    @include full-letter(solid none, 0);
+    @include full-bar();
+  }
+
+  &.j {
+    @include top-letter(solid solid none none, 0);
+    @include bottom-letter(none solid solid, 0 0 $letter-width $letter-width);
+  }
+
+  &.k {
+    @include top-letter(none solid solid, 0 0 $letter-width 0);
+    @include bottom-letter(solid solid none, 0 $letter-width 0 0);
+  }
+
+  &.l {
+    @include full-letter(none none solid solid, 0);
+  }
+
+  &.m {
+    // TODO: middle leg
+    // @include full-letter(solid solid none, $letter-width $letter-width 0 0);
+    // @include full-bar();
+  }
+
+  &.n {
+    @include full-letter(solid solid none, $letter-width $letter-width 0 0);
+  }
+
+  &.o {
+    @include full-letter(solid, $letter-width);
+  }
+
+  &.p {
+    @include top-letter(solid, $letter-width $letter-width $letter-width 0);
+    @include bottom-letter(none none none solid, 0);
+  }
+
+  &.q {
+    // TODO: little leg Q
+    @include full-letter(solid, $letter-width);
   }
 
   &.r {
@@ -85,9 +146,39 @@ body {
     @include bottom-letter(solid solid none, 0 $letter-width / 2 0 0);
   }
 
+  &.s {
+    // TODO: curvy middle
+  }
+
+  &.t {
+    @include full-letter(solid none none, 0);
+    @include full-bar();
+  }
+
+  &.u {
+    @include full-letter(none solid solid, 0 0 $letter-width $letter-width);
+  }
+
+  &.v {
+    // TODO: angled sides
+  }
+
+  &.w {
+    // TODO: see m
+  }
+
+  &.x {
+    @include top-letter(none solid solid, 0 0 $letter-width $letter-width);
+    @include bottom-letter(solid solid none, $letter-width $letter-width 0 0);
+  }
+
   &.y {
     @include top-letter(none solid solid, 0 0 $letter-width $letter-width);
     @include bottom-bar();
     &:after { margin-top: -$letter-thickness / 2; }
+  }
+
+  &.z {
+    // TODO: angled middle
   }
 }
