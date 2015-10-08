@@ -1,11 +1,4 @@
-$letter-color: #ddd;
-$letter-hover-color: purple;
-
-$letter-thickness: 0.2em;
-$letter-width: 1em;
-$letter-height: 1.5em;
-
-$letter-border: $letter-thickness solid $letter-color;
+@import "letter";
 
 body {
   font-size: 100px;
@@ -43,11 +36,6 @@ body {
   }
 }
 
-    width: $letter-width;
-    height: $letter-height / 2;
-  }
-}
-
 .letter {
   position: relative;
   display: inline-block;
@@ -68,87 +56,38 @@ body {
   // &:hover:after { border-color: $letter-hover-color; }
 
   &.g {
-    @include top-bottom();
-
-    &:before {
-      border-style: solid none none solid;
-      border-radius: $letter-width 0 0 0;
-    }
-
-    &:after {
-      border-style: none solid solid;
-      border-radius: 0 0 0 $letter-width;
-    }
+    @include top-letter(solid none none solid, $letter-width 0 0 0);
+    @include bottom-letter(none solid solid, 0 0 0 $letter-width);
+    @include middle-cross-bar();
   }
 
   &.i {
-    border-style: solid none;
-
-    &:before {
-      @extend %pseudo-letter;
-
-      height: $letter-height - $letter-thickness;
-      border-left-style: solid;
-      margin: 0 ($letter-width - $letter-thickness) / 2;
-    }
+    @include full-letter(solid none, 0);
+    @include full-bar();
   }
 
   &.l {
-    border-style: none none solid solid;
+    @include full-letter(none none solid solid, 0);
   }
 
   &.a {
-    border-radius: $letter-width $letter-width 0 0;
-    border-style: solid solid none;
-
-    &:before {
-      @extend %pseudo-letter;
-
-      position: absolute;
-      top: 50%;
-      left: -$letter-thickness;
-      transform: translateY(-50%);
-
-      width: $letter-width;
-      border-top-style: solid;
-    }
+    @include top-letter(solid, $letter-width $letter-width 0 0);
+    @include bottom-letter(solid solid none, 0);
+    @include middle-cross-bar();
   }
 
   &.d {
-    border-radius: 0 $letter-width $letter-width 0;
+    @include full-letter(solid, 0 $letter-width $letter-width 0);
   }
 
   &.r {
-    @include top-bottom();
-
-    &:before {
-      height: $letter-height / 2 + $letter-thickness;
-      border: $letter-border;
-      border-radius: 0 $letter-width $letter-width 0;
-      margin-bottom: -$letter-thickness;
-    }
-
-    &:after {
-      border: $letter-border;
-      border-bottom: none;
-      border-radius: 0 $letter-width / 3 0 0;
-    }
+    @include top-letter(solid, 0 $letter-width $letter-width 0);
+    @include bottom-letter(solid solid none, 0 $letter-width / 2 0 0);
   }
 
   &.y {
-    @include top-bottom();
-
-    &:before {
-      height: $letter-height / 2 + $letter-thickness;
-      border: $letter-border;
-      border-top: none;
-      border-radius: 0 0 $letter-width $letter-width;
-    }
-
-    &:after {
-      height: $letter-height / 2 - $letter-thickness;
-      margin: 0 ($letter-width - $letter-thickness) / 2;
-      border-left: $letter-border;
-    }
+    @include top-letter(none solid solid, 0 0 $letter-width $letter-width);
+    @include bottom-bar();
+    &:after { margin-top: -$letter-thickness / 2; }
   }
 }

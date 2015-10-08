@@ -1,0 +1,88 @@
+$letter-color: #ddd;
+$letter-hover-color: purple;
+
+$letter-thickness: 0.2em;
+$letter-width: 1em;
+$letter-height: 1.5em;
+
+$letter-border: $letter-thickness solid $letter-color;
+
+%letter {
+  border-color: $letter-color;
+  border-width: $letter-thickness;
+
+  &:hover { border-color: $letter-hover-color; }
+
+}
+
+%pseudo {
+  display: block;
+  content: '';
+  box-sizing: border-box;
+  width: $letter-width;
+}
+
+%letter-bar {
+  @extend %pseudo;
+  @extend %letter;
+
+  border-left-style: solid;
+  margin: 0 ($letter-width - $letter-thickness) / 2;
+}
+
+
+@mixin full-letter($styles, $radii) {
+  border-style: $styles;
+  border-radius: $radii;
+}
+
+@mixin pseudo-letter($styles, $radii) {
+  @extend %pseudo;
+  @extend %letter;
+  @include full-letter($styles, $radii);
+}
+
+@mixin top-letter($styles, $radii) {
+  &:before {
+    @include pseudo-letter($styles, $radii);
+
+    height: $letter-height / 2 + $letter-thickness / 2;
+  }
+}
+
+@mixin bottom-letter($styles, $radii) {
+  &:after {
+    @include pseudo-letter($styles, $radii);
+
+    height: $letter-height / 2 + $letter-thickness / 2;
+    margin-top: -$letter-thickness;
+  }
+}
+
+@mixin full-bar() {
+  &:after {
+    @extend %letter-bar;
+
+    height: $letter-height - $letter-thickness;
+  }
+}
+
+@mixin bottom-bar() {
+  &:after {
+    @extend %letter-bar;
+
+    height: $letter-height / 2;
+  }
+}
+
+@mixin middle-cross-bar() {
+  &:before {
+    border-bottom-width: $letter-thickness / 2;
+    height: $letter-height / 2;
+  }
+  &:after {
+    border-top-width: $letter-thickness / 2;
+    height: $letter-height / 2;
+    margin-top: 0;
+  }
+}
