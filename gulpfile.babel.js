@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var watch = require('gulp-watch');
+var count = require('gulp-count');
 var browserSync = require('browser-sync').create();
 
 const SRC = './src'
@@ -35,35 +36,45 @@ gulp.task('sass', () => {
   var sass = require('gulp-sass');
   var autoprefixer = require('gulp-autoprefixer');
 
-  gulp.src(config.sass.src)
-    .pipe(maybeWatch(config.sass))
+  return gulp.src(config.sass.src)
+    // .pipe(maybeWatch(config.sass))
     .pipe(plumber())
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(gulp.dest(config.sass.dest))
     .pipe(browserSync.stream())
+    .pipe(count())
 })
 
 gulp.task('jade', () => {
   var jade = require('gulp-jade');
 
-  gulp.src(config.jade.src)
-    .pipe(maybeWatch(config.jade))
+  return gulp.src(config.jade.src)
+    // .pipe(maybeWatch(config.jade))
     .pipe(jade())
     .pipe(gulp.dest(config.jade.dest))
     .pipe(browserSync.stream())
+    .pipe(count())
 })
 
-// gulp.task('jade-watch', ['jade'], browserSync.reload)
+gulp.task('build', ['jade', 'sass'])
 
-gulp.task('serve', ['jade', 'sass'], () => {
+gulp.task('serve', ['build'], () => {
   browserSync.init({
     server: {
       baseDir: './dist'
     }
   })
 
-  // watch(config.jade.src, () => { gulp.start('jade-watch') })
+  gulp.watch(config.jade.src, ['jade'])
+  gulp.watch(config.sass.watch, ['sass'])
+})
+
+gulp.task('deploy', () => {
+  var ghPages = require('gulp-gh-pages');
+
+  return gulp.src(`${DEST}/**/*`)
+    .pipe(ghPages())
 })
 
 gulp.task('default', ['serve'])
