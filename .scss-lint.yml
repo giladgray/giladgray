@@ -1,6 +1,0 @@
----
-linters:
-  BorderZero:
-    enabled: false
-  PropertySortOrder:
-    enabled: false

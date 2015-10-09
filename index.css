@@ -1,0 +1,237 @@
+.letter.i:after, .letter.t:after, .letter.y:after, .letter.a:before, .letter.a:after, .letter.b:before, .letter.b:after, .letter.e:before, .letter.e:after, .letter.f:before, .letter.f:after, .letter.g:before, .letter.g:after, .letter.h:before, .letter.h:after, .letter.j:before, .letter.j:after, .letter.k:before, .letter.k:after, .letter.p:before, .letter.p:after, .letter.r:before, .letter.r:after, .letter.v:before, .letter.v:after, .letter.x:before, .letter.x:after, .letter.y:before {
+  border-color: #ddd;
+  border-width: 0.2em; }
+
+.letter.i:after, .letter.t:after, .letter.y:after, .letter.a:before, .letter.a:after, .letter.b:before, .letter.b:after, .letter.e:before, .letter.e:after, .letter.f:before, .letter.f:after, .letter.g:before, .letter.g:after, .letter.h:before, .letter.h:after, .letter.j:before, .letter.j:after, .letter.k:before, .letter.k:after, .letter.p:before, .letter.p:after, .letter.r:before, .letter.r:after, .letter.v:before, .letter.v:after, .letter.x:before, .letter.x:after, .letter.y:before {
+  display: block;
+  content: '';
+  box-sizing: border-box;
+  width: 1em; }
+
+.letter.i:after, .letter.t:after, .letter.y:after {
+  border-left-style: solid;
+  margin: 0 0.4em; }
+
+body {
+  font-size: 40px;
+  max-width: 800px;
+  margin: 1em auto; }
+  body * {
+    box-sizing: border-box; }
+
+.name {
+  font-size: 100px; }
+
+a {
+  display: inline-block; }
+
+.links {
+  text-align: right;
+  list-style-type: none; }
+
+.name .letter:hover,
+.intro .letter:hover,
+a:hover .letter {
+  border-color: purple;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg); }
+  .name .letter:hover:before,
+  .intro .letter:hover:before,
+  a:hover .letter:before,
+  .name .letter:hover:after,
+  .intro .letter:hover:after,
+  a:hover .letter:after {
+    border-color: purple; }
+
+.letter {
+  position: relative;
+  display: inline-block;
+  margin: 0.1em;
+  width: 1em;
+  height: 1.5em;
+  border-color: #ddd;
+  border-width: 0.2em;
+  -webkit-transition: -webkit-transform 500ms ease;
+          transition: transform 500ms ease; }
+  .letter.a:before {
+    border-style: solid;
+    border-radius: 1em 1em 0 0;
+    height: 0.85em; }
+  .letter.a:after {
+    border-style: solid solid none;
+    border-radius: 0;
+    height: 0.85em;
+    margin-top: -0.2em; }
+  .letter.a:before {
+    border-bottom-width: 0.1em;
+    height: 0.75em; }
+  .letter.a:after {
+    border-top-width: 0.1em;
+    height: 0.75em;
+    margin-top: 0; }
+  .letter.b:before {
+    border-style: solid;
+    border-radius: 0 1em 1em 0;
+    height: 0.85em; }
+  .letter.b:after {
+    border-style: solid;
+    border-radius: 0 1em 1em 0;
+    height: 0.85em;
+    margin-top: -0.2em; }
+  .letter.c {
+    border-style: solid none solid solid;
+    border-radius: 1em 0 0 1em; }
+  .letter.d {
+    border-style: solid;
+    border-radius: 0 1em 1em 0; }
+  .letter.e:before {
+    border-style: solid none solid solid;
+    border-radius: 1em 0 0;
+    height: 0.85em; }
+  .letter.e:after {
+    border-style: solid none solid solid;
+    border-radius: 0 0 0 1em;
+    height: 0.85em;
+    margin-top: -0.2em; }
+  .letter.e:before {
+    border-bottom-width: 0.1em;
+    height: 0.75em; }
+  .letter.e:after {
+    border-top-width: 0.1em;
+    height: 0.75em;
+    margin-top: 0; }
+  .letter.f:before {
+    border-style: solid none solid solid;
+    border-radius: 1em 0 0;
+    height: 0.85em; }
+  .letter.f:after {
+    border-style: solid none none solid;
+    border-radius: 0;
+    height: 0.85em;
+    margin-top: -0.2em; }
+  .letter.f:before {
+    border-bottom-width: 0.1em;
+    height: 0.75em; }
+  .letter.f:after {
+    border-top-width: 0.1em;
+    height: 0.75em;
+    margin-top: 0; }
+  .letter.g:before {
+    border-style: solid none none solid;
+    border-radius: 1em 0 0 0;
+    height: 0.85em; }
+  .letter.g:after {
+    border-style: none solid solid;
+    border-radius: 0 0 0 1em;
+    height: 0.85em;
+    margin-top: -0.2em; }
+  .letter.g:before {
+    border-bottom-width: 0.1em;
+    height: 0.75em; }
+  .letter.g:after {
+    border-top-width: 0.1em;
+    height: 0.75em;
+    margin-top: 0; }
+  .letter.h:before {
+    border-style: none solid solid;
+    border-radius: 0;
+    height: 0.85em; }
+  .letter.h:after {
+    border-style: solid solid none;
+    border-radius: 0;
+    height: 0.85em;
+    margin-top: -0.2em; }
+  .letter.i {
+    border-style: solid none;
+    border-radius: 0; }
+    .letter.i:after {
+      height: 1.3em; }
+  .letter.j:before {
+    border-style: solid solid none none;
+    border-radius: 0;
+    height: 0.85em; }
+  .letter.j:after {
+    border-style: none solid solid;
+    border-radius: 0 0 1em 1em;
+    height: 0.85em;
+    margin-top: -0.2em; }
+  .letter.k:before {
+    border-style: none solid solid;
+    border-radius: 0 0 1em 0;
+    height: 0.85em; }
+  .letter.k:after {
+    border-style: solid solid none;
+    border-radius: 0 1em 0 0;
+    height: 0.85em;
+    margin-top: -0.2em; }
+  .letter.l {
+    border-style: none none solid solid;
+    border-radius: 0; }
+  .letter.n {
+    border-style: solid solid none;
+    border-radius: 1em 1em 0 0; }
+  .letter.o {
+    border-style: solid;
+    border-radius: 1em; }
+  .letter.p:before {
+    border-style: solid;
+    border-radius: 1em 1em 1em 0;
+    height: 0.85em; }
+  .letter.p:after {
+    border-style: none none none solid;
+    border-radius: 0;
+    height: 0.85em;
+    margin-top: -0.2em; }
+  .letter.q {
+    border-style: solid;
+    border-radius: 1em; }
+  .letter.r:before {
+    border-style: solid;
+    border-radius: 0 1em 1em 0;
+    height: 0.85em; }
+  .letter.r:after {
+    border-style: solid solid none;
+    border-radius: 0 0.5em 0 0;
+    height: 0.85em;
+    margin-top: -0.2em; }
+  .letter.t {
+    border-style: solid none none;
+    border-radius: 0; }
+    .letter.t:after {
+      height: 1.3em; }
+  .letter.u {
+    border-style: none solid solid;
+    border-radius: 0 0 1em 1em; }
+  .letter.v:before {
+    border-style: none solid;
+    border-radius: 0;
+    height: 0.85em; }
+  .letter.v:after {
+    border-style: none solid solid;
+    border-radius: 0 0 1em 0;
+    height: 0.85em;
+    margin-top: -0.2em; }
+  .letter.v:before {
+    border-bottom-width: 0.1em;
+    height: 0.75em; }
+  .letter.v:after {
+    border-top-width: 0.1em;
+    height: 0.75em;
+    margin-top: 0; }
+  .letter.x:before {
+    border-style: none solid solid;
+    border-radius: 0 0 1em 1em;
+    height: 0.85em; }
+  .letter.x:after {
+    border-style: solid solid none;
+    border-radius: 1em 1em 0 0;
+    height: 0.85em;
+    margin-top: -0.2em; }
+  .letter.y:before {
+    border-style: none solid solid;
+    border-radius: 0 0 1em 1em;
+    height: 0.85em; }
+  .letter.y:after {
+    height: 0.75em; }
+  .letter.y:after {
+    margin-top: -0.1em; }
