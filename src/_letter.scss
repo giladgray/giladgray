@@ -10,9 +10,6 @@ $letter-border: $letter-thickness solid $letter-color;
 %letter {
   border-color: $letter-color;
   border-width: $letter-thickness;
-
-  &:hover { border-color: $letter-hover-color; }
-
 }
 
 %pseudo {
